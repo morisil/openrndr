@@ -15,7 +15,6 @@ import java.util.stream.IntStream;
 
 import static io.lacuna.bifurcan.nodes.RopeNodes.MAX_CHUNK_CODE_UNITS;
 import static java.lang.Character.isHighSurrogate;
-import static java.lang.Character.isLowSurrogate;
 
 /**
  * A tree-based immutable string representation, indexed on both full Unicode code points and Java's UTF-16 code
@@ -189,7 +188,7 @@ public class Rope implements Comparable<Rope>, ILinearizable<Rope>, IForkable<Ro
 
   /**
    * @return a new rope representing the code points within {@code [start, end)}
-   * @throws IllegalArgumentException if {@code end} < {@code start}, or {@code start} and {@code end} are not within {@code [0, size())}
+   * @throws IllegalArgumentException if {@code end} &lt; {@code start}, or {@code start} and {@code end} are not within {@code [0, size())}
    */
   public Rope slice(int start, int end) {
     if (end < start || start < 0 || end > size()) {
